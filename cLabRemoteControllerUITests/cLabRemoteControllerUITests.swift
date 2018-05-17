@@ -1,14 +1,14 @@
 //
-//  cLabRemoteControlUITests.swift
-//  cLabRemoteControlUITests
+//  cLabRemoteControllerUITests.swift
+//  cLabRemoteControllerUITests
 //
-//  Created by Tim Lu on 2018/5/17.
+//  Created by Tim Lu on 2018/5/18.
 //  Copyright © 2018 Demilab. All rights reserved.
 //
 
 import XCTest
 
-class cLabRemoteControlUITests: XCTestCase {
+class cLabRemoteControllerUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

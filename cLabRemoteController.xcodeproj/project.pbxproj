@@ -1,0 +1,617 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D52C159120ADDE8D000F1303 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C159020ADDE8D000F1303 /* AppDelegate.swift */; };
+		D52C159320ADDE8D000F1303 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C159220ADDE8D000F1303 /* ViewController.swift */; };
+		D52C159520ADDE90000F1303 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D52C159420ADDE90000F1303 /* Assets.xcassets */; };
+		D52C159820ADDE90000F1303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D52C159620ADDE90000F1303 /* Main.storyboard */; };
+		D52C15A420ADDE90000F1303 /* cLabRemoteControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C15A320ADDE90000F1303 /* cLabRemoteControllerTests.swift */; };
+		D52C15AF20ADDE90000F1303 /* cLabRemoteControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C15AE20ADDE90000F1303 /* cLabRemoteControllerUITests.swift */; };
+		D52C15C220ADDF49000F1303 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D52C15C120ADDF49000F1303 /* Foundation.framework */; };
+		D52C15C420ADDF57000F1303 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D52C15C320ADDF57000F1303 /* AppKit.framework */; };
+		D52C15C620ADEEF3000F1303 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D52C15C520ADEEF3000F1303 /* ImageIO.framework */; };
+		D52C15C820ADEF89000F1303 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D52C15C720ADEF89000F1303 /* GameController.framework */; };
+		D52C15CA20ADF3F3000F1303 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C15C920ADF3F3000F1303 /* Controller.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D52C15A020ADDE90000F1303 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D52C158520ADDE8D000F1303 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D52C158C20ADDE8D000F1303;
+			remoteInfo = cLabRemoteController;
+		};
+		D52C15AB20ADDE90000F1303 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D52C158520ADDE8D000F1303 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D52C158C20ADDE8D000F1303;
+			remoteInfo = cLabRemoteController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D52C158D20ADDE8D000F1303 /* cLabRemoteController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cLabRemoteController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D52C159020ADDE8D000F1303 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D52C159220ADDE8D000F1303 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D52C159420ADDE90000F1303 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D52C159720ADDE90000F1303 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D52C159920ADDE90000F1303 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D52C159A20ADDE90000F1303 /* cLabRemoteController.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = cLabRemoteController.entitlements; sourceTree = "<group>"; };
+		D52C159F20ADDE90000F1303 /* cLabRemoteControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cLabRemoteControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D52C15A320ADDE90000F1303 /* cLabRemoteControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cLabRemoteControllerTests.swift; sourceTree = "<group>"; };
+		D52C15A520ADDE90000F1303 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D52C15AA20ADDE90000F1303 /* cLabRemoteControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cLabRemoteControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D52C15AE20ADDE90000F1303 /* cLabRemoteControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cLabRemoteControllerUITests.swift; sourceTree = "<group>"; };
+		D52C15B020ADDE90000F1303 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D52C15BD20ADDF32000F1303 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D52C15BE20ADDF32000F1303 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		D52C15C120ADDF49000F1303 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D52C15C320ADDF57000F1303 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D52C15C520ADEEF3000F1303 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		D52C15C720ADEF89000F1303 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
+		D52C15C920ADF3F3000F1303 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D52C158A20ADDE8D000F1303 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D52C15C820ADEF89000F1303 /* GameController.framework in Frameworks */,
+				D52C15C620ADEEF3000F1303 /* ImageIO.framework in Frameworks */,
+				D52C15C420ADDF57000F1303 /* AppKit.framework in Frameworks */,
+				D52C15C220ADDF49000F1303 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D52C159C20ADDE90000F1303 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D52C15A720ADDE90000F1303 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D52C158420ADDE8D000F1303 = {
+			isa = PBXGroup;
+			children = (
+				D52C158F20ADDE8D000F1303 /* cLabRemoteController */,
+				D52C15A220ADDE90000F1303 /* cLabRemoteControllerTests */,
+				D52C15AD20ADDE90000F1303 /* cLabRemoteControllerUITests */,
+				D52C158E20ADDE8D000F1303 /* Products */,
+				D52C15BC20ADDF32000F1303 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D52C158E20ADDE8D000F1303 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D52C158D20ADDE8D000F1303 /* cLabRemoteController.app */,
+				D52C159F20ADDE90000F1303 /* cLabRemoteControllerTests.xctest */,
+				D52C15AA20ADDE90000F1303 /* cLabRemoteControllerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D52C158F20ADDE8D000F1303 /* cLabRemoteController */ = {
+			isa = PBXGroup;
+			children = (
+				D52C159020ADDE8D000F1303 /* AppDelegate.swift */,
+				D52C159220ADDE8D000F1303 /* ViewController.swift */,
+				D52C15C920ADF3F3000F1303 /* Controller.swift */,
+				D52C159420ADDE90000F1303 /* Assets.xcassets */,
+				D52C159620ADDE90000F1303 /* Main.storyboard */,
+				D52C159920ADDE90000F1303 /* Info.plist */,
+				D52C159A20ADDE90000F1303 /* cLabRemoteController.entitlements */,
+			);
+			path = cLabRemoteController;
+			sourceTree = "<group>";
+		};
+		D52C15A220ADDE90000F1303 /* cLabRemoteControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				D52C15A320ADDE90000F1303 /* cLabRemoteControllerTests.swift */,
+				D52C15A520ADDE90000F1303 /* Info.plist */,
+			);
+			path = cLabRemoteControllerTests;
+			sourceTree = "<group>";
+		};
+		D52C15AD20ADDE90000F1303 /* cLabRemoteControllerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D52C15AE20ADDE90000F1303 /* cLabRemoteControllerUITests.swift */,
+				D52C15B020ADDE90000F1303 /* Info.plist */,
+			);
+			path = cLabRemoteControllerUITests;
+			sourceTree = "<group>";
+		};
+		D52C15BC20ADDF32000F1303 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D52C15C720ADEF89000F1303 /* GameController.framework */,
+				D52C15C520ADEEF3000F1303 /* ImageIO.framework */,
+				D52C15C320ADDF57000F1303 /* AppKit.framework */,
+				D52C15C120ADDF49000F1303 /* Foundation.framework */,
+				D52C15BD20ADDF32000F1303 /* AVFoundation.framework */,
+				D52C15BE20ADDF32000F1303 /* AVKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D52C158C20ADDE8D000F1303 /* cLabRemoteController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D52C15B320ADDE90000F1303 /* Build configuration list for PBXNativeTarget "cLabRemoteController" */;
+			buildPhases = (
+				D52C158920ADDE8D000F1303 /* Sources */,
+				D52C158A20ADDE8D000F1303 /* Frameworks */,
+				D52C158B20ADDE8D000F1303 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = cLabRemoteController;
+			productName = cLabRemoteController;
+			productReference = D52C158D20ADDE8D000F1303 /* cLabRemoteController.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D52C159E20ADDE90000F1303 /* cLabRemoteControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D52C15B620ADDE90000F1303 /* Build configuration list for PBXNativeTarget "cLabRemoteControllerTests" */;
+			buildPhases = (
+				D52C159B20ADDE90000F1303 /* Sources */,
+				D52C159C20ADDE90000F1303 /* Frameworks */,
+				D52C159D20ADDE90000F1303 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D52C15A120ADDE90000F1303 /* PBXTargetDependency */,
+			);
+			name = cLabRemoteControllerTests;
+			productName = cLabRemoteControllerTests;
+			productReference = D52C159F20ADDE90000F1303 /* cLabRemoteControllerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D52C15A920ADDE90000F1303 /* cLabRemoteControllerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D52C15B920ADDE90000F1303 /* Build configuration list for PBXNativeTarget "cLabRemoteControllerUITests" */;
+			buildPhases = (
+				D52C15A620ADDE90000F1303 /* Sources */,
+				D52C15A720ADDE90000F1303 /* Frameworks */,
+				D52C15A820ADDE90000F1303 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D52C15AC20ADDE90000F1303 /* PBXTargetDependency */,
+			);
+			name = cLabRemoteControllerUITests;
+			productName = cLabRemoteControllerUITests;
+			productReference = D52C15AA20ADDE90000F1303 /* cLabRemoteControllerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D52C158520ADDE8D000F1303 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = Demilab;
+				TargetAttributes = {
+					D52C158C20ADDE8D000F1303 = {
+						CreatedOnToolsVersion = 9.3.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+					D52C159E20ADDE90000F1303 = {
+						CreatedOnToolsVersion = 9.3.1;
+						TestTargetID = D52C158C20ADDE8D000F1303;
+					};
+					D52C15A920ADDE90000F1303 = {
+						CreatedOnToolsVersion = 9.3.1;
+						TestTargetID = D52C158C20ADDE8D000F1303;
+					};
+				};
+			};
+			buildConfigurationList = D52C158820ADDE8D000F1303 /* Build configuration list for PBXProject "cLabRemoteController" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D52C158420ADDE8D000F1303;
+			productRefGroup = D52C158E20ADDE8D000F1303 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D52C158C20ADDE8D000F1303 /* cLabRemoteController */,
+				D52C159E20ADDE90000F1303 /* cLabRemoteControllerTests */,
+				D52C15A920ADDE90000F1303 /* cLabRemoteControllerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D52C158B20ADDE8D000F1303 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D52C159520ADDE90000F1303 /* Assets.xcassets in Resources */,
+				D52C159820ADDE90000F1303 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D52C159D20ADDE90000F1303 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D52C15A820ADDE90000F1303 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D52C158920ADDE8D000F1303 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D52C159320ADDE8D000F1303 /* ViewController.swift in Sources */,
+				D52C15CA20ADF3F3000F1303 /* Controller.swift in Sources */,
+				D52C159120ADDE8D000F1303 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D52C159B20ADDE90000F1303 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D52C15A420ADDE90000F1303 /* cLabRemoteControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D52C15A620ADDE90000F1303 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D52C15AF20ADDE90000F1303 /* cLabRemoteControllerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D52C15A120ADDE90000F1303 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D52C158C20ADDE8D000F1303 /* cLabRemoteController */;
+			targetProxy = D52C15A020ADDE90000F1303 /* PBXContainerItemProxy */;
+		};
+		D52C15AC20ADDE90000F1303 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D52C158C20ADDE8D000F1303 /* cLabRemoteController */;
+			targetProxy = D52C15AB20ADDE90000F1303 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D52C159620ADDE90000F1303 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D52C159720ADDE90000F1303 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D52C15B120ADDE90000F1303 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D52C15B220ADDE90000F1303 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		D52C15B420ADDE90000F1303 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = cLabRemoteController/cLabRemoteController.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 6ELJHX4RN7;
+				INFOPLIST_FILE = cLabRemoteController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = demilab.cLabRemoteController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		D52C15B520ADDE90000F1303 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = cLabRemoteController/cLabRemoteController.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 6ELJHX4RN7;
+				INFOPLIST_FILE = cLabRemoteController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = demilab.cLabRemoteController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		D52C15B720ADDE90000F1303 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 6ELJHX4RN7;
+				INFOPLIST_FILE = cLabRemoteControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = demilab.cLabRemoteControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cLabRemoteController.app/Contents/MacOS/cLabRemoteController";
+			};
+			name = Debug;
+		};
+		D52C15B820ADDE90000F1303 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 6ELJHX4RN7;
+				INFOPLIST_FILE = cLabRemoteControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = demilab.cLabRemoteControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cLabRemoteController.app/Contents/MacOS/cLabRemoteController";
+			};
+			name = Release;
+		};
+		D52C15BA20ADDE90000F1303 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 6ELJHX4RN7;
+				INFOPLIST_FILE = cLabRemoteControllerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = demilab.cLabRemoteControllerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = cLabRemoteController;
+			};
+			name = Debug;
+		};
+		D52C15BB20ADDE90000F1303 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 6ELJHX4RN7;
+				INFOPLIST_FILE = cLabRemoteControllerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = demilab.cLabRemoteControllerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = cLabRemoteController;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D52C158820ADDE8D000F1303 /* Build configuration list for PBXProject "cLabRemoteController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D52C15B120ADDE90000F1303 /* Debug */,
+				D52C15B220ADDE90000F1303 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D52C15B320ADDE90000F1303 /* Build configuration list for PBXNativeTarget "cLabRemoteController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D52C15B420ADDE90000F1303 /* Debug */,
+				D52C15B520ADDE90000F1303 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D52C15B620ADDE90000F1303 /* Build configuration list for PBXNativeTarget "cLabRemoteControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D52C15B720ADDE90000F1303 /* Debug */,
+				D52C15B820ADDE90000F1303 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D52C15B920ADDE90000F1303 /* Build configuration list for PBXNativeTarget "cLabRemoteControllerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D52C15BA20ADDE90000F1303 /* Debug */,
+				D52C15BB20ADDE90000F1303 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D52C158520ADDE8D000F1303 /* Project object */;
+}
