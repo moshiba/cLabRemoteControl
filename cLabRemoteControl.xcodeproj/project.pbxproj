@@ -13,6 +13,9 @@
 		D52C155720ADB63F000F1303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D52C155520ADB63F000F1303 /* Main.storyboard */; };
 		D52C156320ADB63F000F1303 /* cLabRemoteControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C156220ADB63F000F1303 /* cLabRemoteControlTests.swift */; };
 		D52C156E20ADB63F000F1303 /* cLabRemoteControlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C156D20ADB63F000F1303 /* cLabRemoteControlUITests.swift */; };
+		D52C157D20ADBA27000F1303 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D52C157C20ADBA27000F1303 /* AVFoundation.framework */; };
+		D52C157F20ADBA34000F1303 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D52C157E20ADBA34000F1303 /* Foundation.framework */; };
+		D52C158120ADBA43000F1303 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D52C158020ADBA43000F1303 /* AppKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		D52C156920ADB63F000F1303 /* cLabRemoteControlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cLabRemoteControlUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D52C156D20ADB63F000F1303 /* cLabRemoteControlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cLabRemoteControlUITests.swift; sourceTree = "<group>"; };
 		D52C156F20ADB63F000F1303 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D52C157C20ADBA27000F1303 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D52C157E20ADBA34000F1303 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D52C158020ADBA43000F1303 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D52C158120ADBA43000F1303 /* AppKit.framework in Frameworks */,
+				D52C157F20ADBA34000F1303 /* Foundation.framework in Frameworks */,
+				D52C157D20ADBA27000F1303 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +89,7 @@
 				D52C156120ADB63F000F1303 /* cLabRemoteControlTests */,
 				D52C156C20ADB63F000F1303 /* cLabRemoteControlUITests */,
 				D52C154D20ADB63D000F1303 /* Products */,
+				D52C157B20ADBA26000F1303 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +132,16 @@
 				D52C156F20ADB63F000F1303 /* Info.plist */,
 			);
 			path = cLabRemoteControlUITests;
+			sourceTree = "<group>";
+		};
+		D52C157B20ADBA26000F1303 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D52C158020ADBA43000F1303 /* AppKit.framework */,
+				D52C157E20ADBA34000F1303 /* Foundation.framework */,
+				D52C157C20ADBA27000F1303 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +212,11 @@
 				TargetAttributes = {
 					D52C154B20ADB63C000F1303 = {
 						CreatedOnToolsVersion = 9.3.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					D52C155D20ADB63F000F1303 = {
 						CreatedOnToolsVersion = 9.3.1;
