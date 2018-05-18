@@ -24,6 +24,13 @@ class cLabRemoteControllerTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssertEqual(0, 0, "not equal")
+    }
+    
+    func testExample2() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssertEqual(0, 0, "not equal")
     }
     
     func testPerformanceExample() {

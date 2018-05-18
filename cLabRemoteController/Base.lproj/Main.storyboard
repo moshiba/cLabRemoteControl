@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -709,23 +710,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f1A-01-yc3">
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f1A-01-yc3">
                                 <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="f1A-01-yc3" secondAttribute="height" multiplier="16:9" id="MKt-H6-x8B"/>
+                                </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="BPF-uO-gGd"/>
                             </imageView>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IO2-BR-sO2">
                                 <rect key="frame" x="18" y="20" width="100" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" alignment="center" placeholderString="Server IP" id="UjI-6K-dlQ">
-                                    <customFormatter key="formatter" id="7mj-lN-k9e"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" alignment="center" placeholderString="Server IP" id="UjI-6K-dlQ">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1YI-Pi-HCM">
+                                <rect key="frame" x="841" y="36" width="71" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="eXf-Zn-q43">
+                                    <font key="font" metaFont="system"/>
+                                    <segments>
+                                        <segment label="⌨️" width="32"/>
+                                        <segment label="🎮" width="32" selected="YES" tag="1"/>
+                                    </segments>
+                                </segmentedCell>
+                                <connections>
+                                    <action selector="inputMethodControlAction:" target="XfG-lQ-9wD" id="D1L-qd-eI5"/>
+                                </connections>
+                            </segmentedControl>
+                            <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cJk-aZ-IAQ" userLabel="Power Level Indicator">
+                                <rect key="frame" x="539" y="38" width="160" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <levelIndicatorCell key="cell" alignment="left" maxValue="10" warningValue="4" criticalValue="2" levelIndicatorStyle="continuousCapacity" id="Zv2-rP-Rni"/>
+                            </levelIndicator>
+                            <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WCM-Pf-4R9" userLabel="direction indicator">
+                                <rect key="frame" x="333" y="27" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <sliderCell key="cell" alignment="left" maxValue="360" numberOfTickMarks="6" sliderType="circular" id="ivs-zx-9kG"/>
+                            </slider>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="f1A-01-yc3" secondAttribute="trailing" id="8h1-lZ-Ti6"/>
+                            <constraint firstItem="f1A-01-yc3" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="AMQ-Bb-tbO"/>
+                            <constraint firstAttribute="bottom" secondItem="f1A-01-yc3" secondAttribute="bottom" id="R1N-JR-ZE3"/>
+                            <constraint firstItem="f1A-01-yc3" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="eBL-Lt-wM9"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="directionIndicator" destination="WCM-Pf-4R9" id="a8h-hQ-G6y"/>
+                        <outlet property="imageCell" destination="f1A-01-yc3" id="qvL-fL-lsr"/>
+                        <outlet property="inputMethodControl" destination="1YI-Pi-HCM" id="Txh-B3-1jR"/>
+                        <outlet property="ipField" destination="IO2-BR-sO2" id="LEm-Vz-UUb"/>
+                        <outlet property="powerLevelIndicator" destination="cJk-aZ-IAQ" id="Qod-aj-hzW"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

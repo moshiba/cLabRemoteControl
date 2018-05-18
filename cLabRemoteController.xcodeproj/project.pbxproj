@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D52BC55420AF2F5100E1B0D2 /* IPFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52BC55320AF2F5100E1B0D2 /* IPFormatter.swift */; };
 		D52C159120ADDE8D000F1303 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C159020ADDE8D000F1303 /* AppDelegate.swift */; };
 		D52C159320ADDE8D000F1303 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C159220ADDE8D000F1303 /* ViewController.swift */; };
 		D52C159520ADDE90000F1303 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D52C159420ADDE90000F1303 /* Assets.xcassets */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D52BC55220AE70C500E1B0D2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D52BC55320AF2F5100E1B0D2 /* IPFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPFormatter.swift; sourceTree = "<group>"; };
 		D52C158D20ADDE8D000F1303 /* cLabRemoteController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cLabRemoteController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D52C159020ADDE8D000F1303 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D52C159220ADDE8D000F1303 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 		D52C158420ADDE8D000F1303 = {
 			isa = PBXGroup;
 			children = (
+				D52BC55220AE70C500E1B0D2 /* README.md */,
 				D52C158F20ADDE8D000F1303 /* cLabRemoteController */,
 				D52C15A220ADDE90000F1303 /* cLabRemoteControllerTests */,
 				D52C15AD20ADDE90000F1303 /* cLabRemoteControllerUITests */,
@@ -116,6 +120,7 @@
 				D52C159020ADDE8D000F1303 /* AppDelegate.swift */,
 				D52C159220ADDE8D000F1303 /* ViewController.swift */,
 				D52C15C920ADF3F3000F1303 /* Controller.swift */,
+				D52BC55320AF2F5100E1B0D2 /* IPFormatter.swift */,
 				D52C159420ADDE90000F1303 /* Assets.xcassets */,
 				D52C159620ADDE90000F1303 /* Main.storyboard */,
 				D52C159920ADDE90000F1303 /* Info.plist */,
@@ -291,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D52C159320ADDE8D000F1303 /* ViewController.swift in Sources */,
+				D52BC55420AF2F5100E1B0D2 /* IPFormatter.swift in Sources */,
 				D52C15CA20ADF3F3000F1303 /* Controller.swift in Sources */,
 				D52C159120ADDE8D000F1303 /* AppDelegate.swift in Sources */,
 			);
