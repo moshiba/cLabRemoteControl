@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  cLabRemoteControl
+//  cLabRemoteController
 //
-//  Created by Tim Lu on 2018/5/17.
+//  Created by Tim Lu on 2018/5/18.
 //  Copyright © 2018 Demilab. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
+    
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -21,6 +21,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
-
 }
-

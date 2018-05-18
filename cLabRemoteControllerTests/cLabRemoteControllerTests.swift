@@ -1,15 +1,15 @@
 //
-//  cLabRemoteControlTests.swift
-//  cLabRemoteControlTests
+//  cLabRemoteControllerTests.swift
+//  cLabRemoteControllerTests
 //
-//  Created by Tim Lu on 2018/5/17.
+//  Created by Tim Lu on 2018/5/18.
 //  Copyright © 2018 Demilab. All rights reserved.
 //
 
 import XCTest
-@testable import cLabRemoteControl
+@testable import cLabRemoteController
 
-class cLabRemoteControlTests: XCTestCase {
+class cLabRemoteControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -24,6 +24,13 @@ class cLabRemoteControlTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssertEqual(0, 0, "not equal")
+    }
+    
+    func testExample2() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssertEqual(0, 0, "not equal")
     }
     
     func testPerformanceExample() {
