@@ -14,4 +14,4 @@ supported GC profile: extendedGamepad
     left  trigger:    brake/reverse
     right trigger:    accelerate
     right shoulder:   reroute camera-feed
-    menu  (xbox):      end socket connection
+    menu  (xbox):     end socket connection
