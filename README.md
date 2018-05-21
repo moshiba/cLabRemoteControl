@@ -10,3 +10,16 @@ mac os controlling client
 features:
 - remote control
 - video stream
+
+## Structure
+
+### UI
+
+- server IP setting
+- connect button
+- directions
+    - fd
+    - bk
+    - lt
+    - rt
+
