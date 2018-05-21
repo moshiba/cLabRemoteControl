@@ -8,74 +8,143 @@
 
 import Foundation
 
+protocol ImageDelegate: class {
+    func receivedMessage(message: String)
+}
+
 class SocketClient : NSObject{
-    private var host: String;
-    var streamSocket: SocketPort;
-    var commandSocket: SocketPort;
-    private var streamClientDelegate: StreamClientDelegate;
+    var host: String
+    let streamPort: UInt32 = 8888
+    let commandPort: UInt32 = 8889
     
-    init(host: String) {
+    var imageInputStream: InputStream!
+    var imageOutputStream: OutputStream!
+    
+    var commandInputStream: InputStream!
+    var commandOutputStream: OutputStream!
+    
+    weak var imageDelegate: ImageDelegate?
+    
+    let maxReadLength: Int = 15360
+    
+    //private var streamClientDelegate: StreamClientDelegate;
+    
+    override init() {
         print("on Main thread?", Thread.isMainThread)
         print("multi thread?", Thread.isMultiThreaded())
-        self.host = host
-        streamClientDelegate = StreamClientDelegate()
-        print("stream delegate constructed")
-        streamSocket = SocketPort.init()
-        print("stream socket port opened")
-        streamSocket.setDelegate(streamClientDelegate)
-        print("stream socket delegate assigned")
-        commandSocket = SocketPort.init()
-        print("command socket opened")
-        RunLoop.current.add(streamSocket, forMode: RunLoopMode.commonModes);
-        print("stream socket added to runloop")
-        RunLoop.current.add(commandSocket, forMode: RunLoopMode.commonModes);
-        print("command socket added to socket")
-        //RunLoop.current.run();
-        print("runloop starts to run")
+        self.host = "127.0.0.1"
     }
     
     func setConn(host: String) {
-        // Invalidate previous socket instance
-        streamSocket.invalidate()
-        commandSocket.invalidate()
-        RunLoop.current.remove(streamSocket, forMode: RunLoopMode.commonModes)
-        RunLoop.current.remove(commandSocket, forMode: RunLoopMode.commonModes)
+        /*
+        imageInputStream.close()
+        imageOutputStream.close()
+        commandInputStream.close()
+        commandOutputStream.close()
+        */
         
         self.host = host
-        self.streamSocket = SocketPort.init(remoteWithTCPPort: 8888, host: self.host)!
-        print("assign new stream socket")
-        self.commandSocket = SocketPort.init(remoteWithTCPPort: 8889, host: self.host)!
-        print("assign new command socket")
-        self.streamSocket.setDelegate(streamClientDelegate)
-        print("stream socket assign new delegate")
-        RunLoop.current.add(streamSocket, forMode: RunLoopMode.commonModes);
-        RunLoop.current.add(commandSocket, forMode: RunLoopMode.commonModes);
+        print("connection set for HOST:", self.host)
+        
+        // img
+        var imgReadStream:  Unmanaged<CFReadStream>?
+        var imgWriteStream: Unmanaged<CFWriteStream>?
+        CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, self.host as CFString, self.streamPort, &imgReadStream, &imgWriteStream)
+        
+        // cmd
+        //var cmdReadStream:  Unmanaged<CFReadStream>?
+        //var cmdWriteStream: Unmanaged<CFWriteStream>?
+        //CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, self.host as CFString, self.commandPort, &cmdReadStream, &cmdWriteStream)
+        
+        // cmd
+        imageInputStream  = imgReadStream!.takeRetainedValue()
+        imageOutputStream = imgWriteStream!.takeRetainedValue()
+        
+        // img
+        //commandInputStream  = cmdReadStream!.takeRetainedValue()
+        //commandOutputStream = cmdWriteStream!.takeRetainedValue()
+        
+        imageInputStream.delegate = self
+        
+        imageInputStream.schedule(in: .current, forMode: .commonModes)
+        imageOutputStream.schedule(in: .current, forMode: .commonModes)
+        //commandInputStream.schedule(in: .current, forMode: .commonModes)
+        //commandOutputStream.schedule(in: .current, forMode: .commonModes)
+        
+        imageInputStream.open()
+        imageOutputStream.open()
+        //commandInputStream.open()
+        //commandOutputStream.open()
     }
     
     func sendCommand(cmd: String) {
-        // Guarantees to send in 0.1 second
-        // Reserves 1Kb for header
-        //commandSocket.send(before: Date.init(timeIntervalSinceNow: 0.1), components: , from: , reserved: 1024)
-        // send ("NCTUEEclass20htlu," + cmd)
+        let command = "NCTUEEclass20htlu,\(cmd)".data(using: .ascii)!  // Constructs command with keyword in front
+        _ = command.withUnsafeBytes{commandOutputStream.write($0, maxLength: command.count)}
     }
     
     deinit {
         print("socket CLIENT destruct STARTS")
-        RunLoop.current.remove(streamSocket, forMode: RunLoopMode.commonModes)
-        RunLoop.current.remove(commandSocket, forMode: RunLoopMode.commonModes)
-        streamSocket.invalidate()
-        commandSocket.invalidate()
+        imageInputStream.close()
+        imageOutputStream.close()
+        //commandInputStream.close()
+        //commandOutputStream.close()
         print("socket CLIENT destruct ENDS")
     }
 }
 
-class StreamClientDelegate: NSObject, PortDelegate{
-    var image: CGImage?
-    func handle(_ message: PortMessage) {
-        print("got image!")
-        print(message)
-        // decode image
+extension SocketClient: StreamDelegate {
+    func stream(_ aStream: Stream, handle eventCode: Stream.Event) {
+        switch eventCode {
+            case Stream.Event.hasBytesAvailable:
+                readAvailableBytes(stream: aStream as! InputStream)
+                print("new message received: HBA")
+            
+            case Stream.Event.endEncountered:
+                print("new message received: EE")
+            
+            case Stream.Event.errorOccurred:
+                print("error occurred")
+            
+            case Stream.Event.hasSpaceAvailable:
+                print("has space available")
+            
+            default:
+                print("some other event...")
+                break
+        }
+    }
+    
+    private func readAvailableBytes(stream: InputStream) {
+        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: self.maxReadLength)
+        
+        while stream.hasBytesAvailable {
+            let numberOfBytesRead = imageInputStream.read(buffer, maxLength: self.maxReadLength)
+            
+            if numberOfBytesRead < 0 {
+                if let _ = stream.streamError {
+                    break
+                }
+            }
+            
+            //Construct the Message object
+            
+            if let message = processedMessageString(buffer: buffer, length: numberOfBytesRead) {
+                //Notify interested parties
+                imageDelegate?.receivedMessage(message: message)
+            }
+        }
+    }
+    
+    private func processedMessageString(buffer: UnsafeMutablePointer<UInt8>, length: Int) -> String? {
+        guard let stringArray = String(bytesNoCopy: buffer,
+                                       length: length,
+                                       encoding: .ascii,
+                                       freeWhenDone: true)?.components(separatedBy: " "),  // split ImgByteStr by
+            let imageStr = stringArray.first else {
+                return nil
+        }
+        print("string array", stringArray)
         //image = CGImage(jpegDataProviderSource: CGDataProvider(url: "localhost:8888" as! CFURL)!, decode: nil, shouldInterpolate: false, intent: CGColorRenderingIntent.defaultIntent)
-        print("image decoded!")
+        return imageStr // image
     }
 }

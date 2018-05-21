@@ -14,11 +14,12 @@ class ViewController: NSViewController {
     @IBOutlet weak var ipField: NSTextField!
     @IBAction func ipFieldFilled(_ sender: Any) {
         print("ip button HIT! text:", ipField.stringValue)
+        self.socket.setConn(host: ipField.stringValue)
         /*
-         if sockets exist, close them
-         create new sockets according to input value
-         connect them
-         */
+        if sockets exist, close them
+        create new sockets according to input value
+        connect them
+        */
     }
     @IBAction func inputMethodControlAction(_ sender: Any) {
     }
@@ -26,16 +27,17 @@ class ViewController: NSViewController {
     @IBOutlet weak var directionIndicator: NSSlider!
     @IBOutlet weak var powerLevelIndicator: NSLevelIndicator!
     
-    @IBAction func StopSocketButtonPress(_ sender: Any) {
-        socket.setConn(host: "127.0.0.1")
-        RunLoop.current.run()
-        print("socket set connection towards 127.0.0.1")
-    }
-    var socket = SocketClient(host: "127.0.0.1")
+    var socket = SocketClient()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.streamSocket = SocketPort.init(remoteWithTCPPort: 8888, host: self.host)!;
+        socket.imageDelegate = self
+        //socket.setConn(host: "127.0.0.1")
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        //socket.imageDelegate = self
     }
     
     override var representedObject: Any? {
@@ -43,7 +45,11 @@ class ViewController: NSViewController {
             // Update the view, if already loaded.
         }
     }
+}
 
-
+extension ViewController: ImageDelegate {
+    func receivedMessage(message: String) {
+        print("view got msg:", message)
+    }
 }
 
