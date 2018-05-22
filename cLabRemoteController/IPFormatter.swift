@@ -7,7 +7,6 @@
 //
 
 import Foundation
-<<<<<<< HEAD
 
 class IPFormatter: Formatter {
     override func string(for obj: Any?) -> String? {
@@ -18,5 +17,3 @@ class IPFormatter: Formatter {
         return false
     }
 }
-=======
->>>>>>> basicUI
