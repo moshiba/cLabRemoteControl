@@ -13,81 +13,62 @@ protocol ImageDelegate: class {
 }
 
 class SocketClient : NSObject{
-    var host: String
-    let streamPort: UInt32 = 8888
+    let streamPort:  UInt32 = 8888
     let commandPort: UInt32 = 8889
-    
-    var imageInputStream: InputStream!
-    var imageOutputStream: OutputStream!
-    
-    var commandInputStream: InputStream!
-    var commandOutputStream: OutputStream!
+    let maxReadLength:  Int = 15360
     
     weak var imageDelegate: ImageDelegate?
     
-    let maxReadLength: Int = 15360
-    
-    //private var streamClientDelegate: StreamClientDelegate;
+    var host: String!
+    var imageInputStream: InputStream!
+    var commandOutputStream: OutputStream!
     
     override init() {
         print("on Main thread?", Thread.isMainThread)
         print("multi thread?", Thread.isMultiThreaded())
-        self.host = "127.0.0.1"
     }
     
     func setConn(host: String) {
-        /*
-        imageInputStream.close()
-        imageOutputStream.close()
-        commandInputStream.close()
-        commandOutputStream.close()
-        */
-        
         self.host = host
         print("connection set for HOST:", self.host)
         
         // img
         var imgReadStream:  Unmanaged<CFReadStream>?
-        var imgWriteStream: Unmanaged<CFWriteStream>?
-        CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, self.host as CFString, self.streamPort, &imgReadStream, &imgWriteStream)
+        CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, self.host as CFString, self.streamPort, &imgReadStream, nil)
         
         // cmd
-        //var cmdReadStream:  Unmanaged<CFReadStream>?
-        //var cmdWriteStream: Unmanaged<CFWriteStream>?
-        //CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, self.host as CFString, self.commandPort, &cmdReadStream, &cmdWriteStream)
-        
-        // cmd
-        imageInputStream  = imgReadStream!.takeRetainedValue()
-        imageOutputStream = imgWriteStream!.takeRetainedValue()
+        var cmdWriteStream: Unmanaged<CFWriteStream>?
+        CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, self.host as CFString, self.commandPort, nil, &cmdWriteStream)
         
         // img
-        //commandInputStream  = cmdReadStream!.takeRetainedValue()
-        //commandOutputStream = cmdWriteStream!.takeRetainedValue()
+        imageInputStream  = imgReadStream!.takeRetainedValue()
+        
+        // cmd
+        commandOutputStream = cmdWriteStream!.takeRetainedValue()
         
         imageInputStream.delegate = self
         
         imageInputStream.schedule(in: .current, forMode: .commonModes)
-        imageOutputStream.schedule(in: .current, forMode: .commonModes)
-        //commandInputStream.schedule(in: .current, forMode: .commonModes)
-        //commandOutputStream.schedule(in: .current, forMode: .commonModes)
+        commandOutputStream.schedule(in: .current, forMode: .commonModes)
         
         imageInputStream.open()
-        imageOutputStream.open()
-        //commandInputStream.open()
-        //commandOutputStream.open()
+        commandOutputStream.open()
     }
     
     func sendCommand(cmd: String) {
-        let command = "NCTUEEclass20htlu,\(cmd)".data(using: .ascii)!  // Constructs command with keyword in front
+        // Cmd is made of tuple (RightWheelDutyCycle, LeftWheelDutyCycle)
+        let command = "NCTUEEclass20htlu, \(cmd)".data(using: .ascii)!  // Constructs command with keyword in front, seperated by commas
         _ = command.withUnsafeBytes{commandOutputStream.write($0, maxLength: command.count)}
     }
     
     deinit {
         print("socket CLIENT destruct STARTS")
         imageInputStream.close()
-        imageOutputStream.close()
-        //commandInputStream.close()
-        //commandOutputStream.close()
+        commandOutputStream.close()
+        
+        imageInputStream.delegate = nil
+        imageInputStream = nil
+        commandOutputStream = nil
         print("socket CLIENT destruct ENDS")
     }
 }
@@ -109,7 +90,7 @@ extension SocketClient: StreamDelegate {
                 print("has space available")
             
             default:
-                print("some other event...")
+                print("some other event..., eventCode \(eventCode)")
                 break
         }
     }
@@ -143,7 +124,10 @@ extension SocketClient: StreamDelegate {
             let imageStr = stringArray.first else {
                 return nil
         }
-        print("string array", stringArray)
+        print("rcve photo")
+        // FIXME: print("string array", stringArray)
+        
+        
         //image = CGImage(jpegDataProviderSource: CGDataProvider(url: "localhost:8888" as! CFURL)!, decode: nil, shouldInterpolate: false, intent: CGColorRenderingIntent.defaultIntent)
         return imageStr // image
     }

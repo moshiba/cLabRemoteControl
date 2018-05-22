@@ -15,17 +15,37 @@ class ViewController: NSViewController {
     @IBAction func ipFieldFilled(_ sender: Any) {
         print("ip button HIT! text:", ipField.stringValue)
         self.socket.setConn(host: ipField.stringValue)
-        /*
-        if sockets exist, close them
-        create new sockets according to input value
-        connect them
-        */
     }
     @IBAction func inputMethodControlAction(_ sender: Any) {
+        if (inputMethodControl.isSelected(forSegment: 0)) {  // Keyboard
+            
+        } else if (inputMethodControl.isSelected(forSegment: 0)) {  // Game Controller
+            
+        } else {
+            print("input selection button reports weird activity")
+        }
     }
     @IBOutlet weak var inputMethodControl: NSSegmentedControl!
     @IBOutlet weak var directionIndicator: NSSlider!
     @IBOutlet weak var powerLevelIndicator: NSLevelIndicator!
+    
+    
+    // Cmd is made of tuple (RightWheelDutyCycle, LeftWheelDutyCycle)
+    
+    /* Backup Controls */
+    @IBAction func FdButtonPressed(_ sender: Any) {
+        socket.sendCommand(cmd: "80, 80")
+    }
+    @IBAction func BkButtonPressed(_ sender: Any) {
+        socket.sendCommand(cmd: "-80, -80")
+    }
+    @IBAction func RtButtonPressed(_ sender: Any) {
+        socket.sendCommand(cmd: "-70, 70")
+    }
+    @IBAction func LtButtonPressed(_ sender: Any) {
+        socket.sendCommand(cmd: "70, -70")
+    }
+    
     
     var socket = SocketClient()
     
@@ -49,7 +69,8 @@ class ViewController: NSViewController {
 
 extension ViewController: ImageDelegate {
     func receivedMessage(message: String) {
-        print("view got msg:", message)
+        print("view got msg")
+        //print("view got msg:", message)
     }
 }
 
