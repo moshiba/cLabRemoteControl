@@ -13,6 +13,10 @@ class ViewController: NSViewController {
     @IBOutlet weak var imageCell: NSImageView!
     @IBOutlet weak var ipField: NSTextField!
     @IBAction func ipFieldFilled(_ sender: Any) {
+        guard (ipField.stringValue != "") else {
+            print("ipField empty value")
+            return
+        }
         print("ip button HIT! text:", ipField.stringValue)
         self.socket.setConn(host: ipField.stringValue)
     }

@@ -15,7 +15,7 @@ protocol ImageDelegate: class {
 class SocketClient : NSObject{
     let streamPort:  UInt32 = 8888
     let commandPort: UInt32 = 8889
-    let maxReadLength:  Int = 15360
+    let maxReadLength:  Int = 16384
     
     weak var imageDelegate: ImageDelegate?
     
@@ -31,26 +31,26 @@ class SocketClient : NSObject{
     func setConn(host: String) {
         self.host = host
         print("connection set for HOST:", self.host)
-        
+    
         // img
         var imgReadStream:  Unmanaged<CFReadStream>?
         CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, self.host as CFString, self.streamPort, &imgReadStream, nil)
-        
+    
         // cmd
         var cmdWriteStream: Unmanaged<CFWriteStream>?
         CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, self.host as CFString, self.commandPort, nil, &cmdWriteStream)
-        
+    
         // img
         imageInputStream  = imgReadStream!.takeRetainedValue()
-        
+    
         // cmd
         commandOutputStream = cmdWriteStream!.takeRetainedValue()
-        
+    
         imageInputStream.delegate = self
-        
+    
         imageInputStream.schedule(in: .current, forMode: .commonModes)
         commandOutputStream.schedule(in: .current, forMode: .commonModes)
-        
+    
         imageInputStream.open()
         commandOutputStream.open()
     }
@@ -96,10 +96,10 @@ extension SocketClient: StreamDelegate {
     }
     
     private func readAvailableBytes(stream: InputStream) {
-        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: self.maxReadLength)
+        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: maxReadLength)
         
         while stream.hasBytesAvailable {
-            let numberOfBytesRead = imageInputStream.read(buffer, maxLength: self.maxReadLength)
+            let numberOfBytesRead = imageInputStream.read(buffer, maxLength: maxReadLength)
             
             if numberOfBytesRead < 0 {
                 if let _ = stream.streamError {
@@ -114,18 +114,19 @@ extension SocketClient: StreamDelegate {
                 imageDelegate?.receivedMessage(message: message)
             }
         }
+        buffer.deallocate()
     }
     
     private func processedMessageString(buffer: UnsafeMutablePointer<UInt8>, length: Int) -> String? {
         guard let stringArray = String(bytesNoCopy: buffer,
                                        length: length,
-                                       encoding: .ascii,
+                                       encoding: .utf8,
                                        freeWhenDone: true)?.components(separatedBy: " "),  // split ImgByteStr by
             let imageStr = stringArray.first else {
                 return nil
         }
         print("rcve photo")
-        // FIXME: print("string array", stringArray)
+        // FIXME: print("string array", stringArray, ", imageStr", imageStr)
         
         
         //image = CGImage(jpegDataProviderSource: CGDataProvider(url: "localhost:8888" as! CFURL)!, decode: nil, shouldInterpolate: false, intent: CGColorRenderingIntent.defaultIntent)
