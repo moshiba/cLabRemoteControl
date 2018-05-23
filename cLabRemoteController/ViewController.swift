@@ -22,9 +22,9 @@ class ViewController: NSViewController {
     }
     @IBAction func inputMethodControlAction(_ sender: Any) {
         if (inputMethodControl.isSelected(forSegment: 0)) {  // Keyboard
-            
-        } else if (inputMethodControl.isSelected(forSegment: 0)) {  // Game Controller
-            
+
+        } else if (inputMethodControl.isSelected(forSegment: 1)) {  // Game Controller
+
         } else {
             print("input selection button reports weird activity")
         }
@@ -32,10 +32,10 @@ class ViewController: NSViewController {
     @IBOutlet weak var inputMethodControl: NSSegmentedControl!
     @IBOutlet weak var directionIndicator: NSSlider!
     @IBOutlet weak var powerLevelIndicator: NSLevelIndicator!
-    
-    
+
+
     // Cmd is made of tuple (RightWheelDutyCycle, LeftWheelDutyCycle)
-    
+
     /* Backup Controls */
     @IBAction func FdButtonPressed(_ sender: Any) {
         socket.sendCommand(cmd: "80, 80")
@@ -49,21 +49,20 @@ class ViewController: NSViewController {
     @IBAction func LtButtonPressed(_ sender: Any) {
         socket.sendCommand(cmd: "70, -70")
     }
-    
-    
-    var socket = SocketClient()
-    
+
+
+    let socket = SocketClient()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        socket.imageDelegate = self
-        //socket.setConn(host: "127.0.0.1")
+        //socket.imageDelegate = self
     }
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        //socket.imageDelegate = self
+        socket.imageDelegate = self
     }
-    
+
     override var representedObject: Any? {
         didSet {
             // Update the view, if already loaded.
@@ -73,8 +72,6 @@ class ViewController: NSViewController {
 
 extension ViewController: ImageDelegate {
     func receivedMessage(message: String) {
-        print("view got msg")
-        //print("view got msg:", message)
+        print("view got msg:", message)
     }
 }
-

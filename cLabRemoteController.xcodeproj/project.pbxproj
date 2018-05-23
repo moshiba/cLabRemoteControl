@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D52BC55420AF2F5100E1B0D2 /* IPFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52BC55320AF2F5100E1B0D2 /* IPFormatter.swift */; };
+		D517895820B50FB8008235AD /* cLabControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D517895720B50FB8008235AD /* cLabControllerTests.swift */; };
+		D517895A20B51219008235AD /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D517895920B51219008235AD /* Mocks.swift */; };
 		D52C159120ADDE8D000F1303 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C159020ADDE8D000F1303 /* AppDelegate.swift */; };
 		D52C159320ADDE8D000F1303 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C159220ADDE8D000F1303 /* ViewController.swift */; };
 		D52C159520ADDE90000F1303 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D52C159420ADDE90000F1303 /* Assets.xcassets */; };
 		D52C159820ADDE90000F1303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D52C159620ADDE90000F1303 /* Main.storyboard */; };
-		D52C15A420ADDE90000F1303 /* cLabRemoteControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C15A320ADDE90000F1303 /* cLabRemoteControllerTests.swift */; };
 		D52C15AF20ADDE90000F1303 /* cLabRemoteControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C15AE20ADDE90000F1303 /* cLabRemoteControllerUITests.swift */; };
 		D52C15C220ADDF49000F1303 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D52C15C120ADDF49000F1303 /* Foundation.framework */; };
 		D52C15C420ADDF57000F1303 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D52C15C320ADDF57000F1303 /* AppKit.framework */; };
@@ -41,8 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D517895720B50FB8008235AD /* cLabControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cLabControllerTests.swift; sourceTree = "<group>"; };
+		D517895920B51219008235AD /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		D52BC55220AE70C500E1B0D2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		D52BC55320AF2F5100E1B0D2 /* IPFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPFormatter.swift; sourceTree = "<group>"; };
 		D52C158D20ADDE8D000F1303 /* cLabRemoteController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cLabRemoteController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D52C159020ADDE8D000F1303 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D52C159220ADDE8D000F1303 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,7 +52,6 @@
 		D52C159920ADDE90000F1303 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D52C159A20ADDE90000F1303 /* cLabRemoteController.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = cLabRemoteController.entitlements; sourceTree = "<group>"; };
 		D52C159F20ADDE90000F1303 /* cLabRemoteControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cLabRemoteControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D52C15A320ADDE90000F1303 /* cLabRemoteControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cLabRemoteControllerTests.swift; sourceTree = "<group>"; };
 		D52C15A520ADDE90000F1303 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D52C15AA20ADDE90000F1303 /* cLabRemoteControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cLabRemoteControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D52C15AE20ADDE90000F1303 /* cLabRemoteControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cLabRemoteControllerUITests.swift; sourceTree = "<group>"; };
@@ -122,15 +122,14 @@
 		D52C158F20ADDE8D000F1303 /* cLabRemoteController */ = {
 			isa = PBXGroup;
 			children = (
-				D52C159020ADDE8D000F1303 /* AppDelegate.swift */,
 				D52C159220ADDE8D000F1303 /* ViewController.swift */,
 				D55897DC20B19C62003DCF2C /* SocketClient.swift */,
-				D52C15C920ADF3F3000F1303 /* Controller.swift */,
-				D52C159420ADDE90000F1303 /* Assets.xcassets */,
 				D52C159620ADDE90000F1303 /* Main.storyboard */,
+				D52C159420ADDE90000F1303 /* Assets.xcassets */,
+				D52C159020ADDE8D000F1303 /* AppDelegate.swift */,
 				D52C159920ADDE90000F1303 /* Info.plist */,
 				D52C159A20ADDE90000F1303 /* cLabRemoteController.entitlements */,
-				D52BC55320AF2F5100E1B0D2 /* IPFormatter.swift */,
+				D52C15C920ADF3F3000F1303 /* Controller.swift */,
 			);
 			path = cLabRemoteController;
 			sourceTree = "<group>";
@@ -138,7 +137,8 @@
 		D52C15A220ADDE90000F1303 /* cLabRemoteControllerTests */ = {
 			isa = PBXGroup;
 			children = (
-				D52C15A320ADDE90000F1303 /* cLabRemoteControllerTests.swift */,
+				D517895720B50FB8008235AD /* cLabControllerTests.swift */,
+				D517895920B51219008235AD /* Mocks.swift */,
 				D52C15A520ADDE90000F1303 /* Info.plist */,
 			);
 			path = cLabRemoteControllerTests;
@@ -245,11 +245,13 @@
 					};
 					D52C159E20ADDE90000F1303 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 						TestTargetID = D52C158C20ADDE8D000F1303;
 					};
 					D52C15A920ADDE90000F1303 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 						TestTargetID = D52C158C20ADDE8D000F1303;
 					};
@@ -308,7 +310,6 @@
 			files = (
 				D55897DD20B19C62003DCF2C /* SocketClient.swift in Sources */,
 				D52C159320ADDE8D000F1303 /* ViewController.swift in Sources */,
-				D52BC55420AF2F5100E1B0D2 /* IPFormatter.swift in Sources */,
 				D52C15CA20ADF3F3000F1303 /* Controller.swift in Sources */,
 				D52C159120ADDE8D000F1303 /* AppDelegate.swift in Sources */,
 			);
@@ -318,7 +319,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D52C15A420ADDE90000F1303 /* cLabRemoteControllerTests.swift in Sources */,
+				D517895820B50FB8008235AD /* cLabControllerTests.swift in Sources */,
+				D517895A20B51219008235AD /* Mocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +410,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -462,7 +464,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -487,7 +489,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = demilab.cLabRemoteController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -508,7 +510,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = demilab.cLabRemoteController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -517,6 +519,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = F93D9X8KY6;
@@ -524,7 +527,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = demilab.cLabRemoteControllerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cLabRemoteController.app/Contents/MacOS/cLabRemoteController";
 			};
 			name = Debug;
@@ -534,6 +539,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = F93D9X8KY6;
@@ -541,7 +547,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = demilab.cLabRemoteControllerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cLabRemoteController.app/Contents/MacOS/cLabRemoteController";
 			};
 			name = Release;
@@ -557,7 +564,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = demilab.cLabRemoteControllerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = cLabRemoteController;
 			};
 			name = Debug;
@@ -573,7 +581,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = demilab.cLabRemoteControllerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = cLabRemoteController;
 			};
 			name = Release;
