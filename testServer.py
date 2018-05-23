@@ -30,8 +30,8 @@ print("opens server")
 while True:
     try:
         if TEST == "output":
-            conn.send(encJPG.tostring())
-            conn.send("a" * 1000)
+            #conn.send(encJPG.tostring())
+            conn.send("a" * 10)
             print(str(count) + " msg sent")
             count += 1
             sleep(MSG_INTERVAL)

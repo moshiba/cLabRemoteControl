@@ -114,7 +114,7 @@ extension SocketClient: StreamDelegate {
                 imageDelegate?.receivedMessage(message: message)
             }
         }
-        buffer.deallocate()
+        //buffer.deallocate()
     }
     
     private func processedMessageString(buffer: UnsafeMutablePointer<UInt8>, length: Int) -> String? {
@@ -126,7 +126,8 @@ extension SocketClient: StreamDelegate {
                 return nil
         }
         print("rcve photo")
-        // FIXME: print("string array", stringArray, ", imageStr", imageStr)
+        // FIXME: 
+        print("string array", stringArray, ", imageStr", imageStr)
         
         
         //image = CGImage(jpegDataProviderSource: CGDataProvider(url: "localhost:8888" as! CFURL)!, decode: nil, shouldInterpolate: false, intent: CGColorRenderingIntent.defaultIntent)

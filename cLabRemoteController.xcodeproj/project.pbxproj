@@ -477,7 +477,7 @@
 				CODE_SIGN_ENTITLEMENTS = cLabRemoteController/cLabRemoteController.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 6ELJHX4RN7;
+				DEVELOPMENT_TEAM = F93D9X8KY6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/cLabRemoteController",
@@ -499,7 +499,7 @@
 				CODE_SIGN_ENTITLEMENTS = cLabRemoteController/cLabRemoteController.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 6ELJHX4RN7;
+				DEVELOPMENT_TEAM = F93D9X8KY6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/cLabRemoteController",
@@ -519,7 +519,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 6ELJHX4RN7;
+				DEVELOPMENT_TEAM = F93D9X8KY6;
 				INFOPLIST_FILE = cLabRemoteControllerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = demilab.cLabRemoteControllerTests;
@@ -536,7 +536,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 6ELJHX4RN7;
+				DEVELOPMENT_TEAM = F93D9X8KY6;
 				INFOPLIST_FILE = cLabRemoteControllerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = demilab.cLabRemoteControllerTests;
@@ -552,7 +552,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 6ELJHX4RN7;
+				DEVELOPMENT_TEAM = F93D9X8KY6;
 				INFOPLIST_FILE = cLabRemoteControllerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = demilab.cLabRemoteControllerUITests;
@@ -568,7 +568,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 6ELJHX4RN7;
+				DEVELOPMENT_TEAM = F93D9X8KY6;
 				INFOPLIST_FILE = cLabRemoteControllerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = demilab.cLabRemoteControllerUITests;
