@@ -7,7 +7,7 @@ import random
 
 logging.basicConfig(level=logging.DEBUG)
 
-TEST = "output"  # "input"
+TEST = "output"  # "input" # "output"
 logging.info(" Server Mode: %s", TEST)
 MSG_INTERVAL = 5#0.025
 
