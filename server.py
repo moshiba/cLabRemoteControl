@@ -227,7 +227,7 @@ class ControlClient(threading.Thread):
                     car.rightWheel(float(cmd[0]))
                     car.leftWheel(float(cmd[1]))
                     print("got cmd:" + str(cmd[0]) + str(cmd[1]))
-                    time.sleep(0.1)
+                    time.sleep(0.3)
                 else:
                     print("cannot interpret cmd")
                     print(cmd)

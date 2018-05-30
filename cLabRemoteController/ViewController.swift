@@ -44,10 +44,10 @@ class ViewController: NSViewController {
         socket.sendCommand(cmd: "-80, -80")
     }
     @IBAction func RtButtonPressed(_ sender: Any) {
-        socket.sendCommand(cmd: "-70, 70")
+        socket.sendCommand(cmd: "-100, 100")
     }
     @IBAction func LtButtonPressed(_ sender: Any) {
-        socket.sendCommand(cmd: "70, -70")
+        socket.sendCommand(cmd: "100, -100")
     }
 
 
