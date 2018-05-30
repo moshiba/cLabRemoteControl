@@ -222,13 +222,14 @@ class ControlClient(threading.Thread):
                     cmd += char
 
                 self.lock.acquire()
-                if cmd[0] == 'NCTUEEclass20htlu':
+                if 'NCTUEEclass20htlu' in cmd[0]:
                     cmd = cmd.split(',')[1:]
                     car.rightWheel(float(cmd[0]))
                     car.leftWheel(float(cmd[1]))
                     print("got cmd:" + str(cmd[0]) + str(cmd[1]))
                     time.sleep(0.1)
                 else:
+                    print("cannot interpret cmd")
                     print(cmd)
                 self.lock.release()
 
