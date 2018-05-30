@@ -128,9 +128,10 @@ class Server:
 
                 for ss in input_ready:
                     if ss == self.socket_stream:
-                        cc = StreamClient(self.socket_stream.accept())
-                        cc.start()
-                        self.threads.append(cc)
+                        # FIXME: cc = StreamClient(self.socket_stream.accept())
+                        # FIXME: cc.start()
+                        # FIXME: self.threads.append(cc)
+                        pass  # FIXME:
 
                     elif ss == self.socket_control:
                         cc = ControlClient(self.socket_control.accept())
@@ -244,7 +245,7 @@ class ControlClient(threading.Thread):
                     cmd = cmd.split(',')[1:]
                     car.rightWheel(cmd[0])
                     car.leftWheel(cmd[1])
-                    //print("got cmd:" + str(cmd[0]) + str(cmd[1]))
+                    # print("got cmd:" + str(cmd[0]) + str(cmd[1]))
                     time.sleep(0.1)
                 else:
                     pre = 'unknown '
