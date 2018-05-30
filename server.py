@@ -244,13 +244,13 @@ class ControlClient(threading.Thread):
                     cmd = cmd.split(',')[1:]
                     car.rightWheel(cmd[0])
                     car.leftWheel(cmd[1])
-                    print("got cmd:" + str(cmd[0]) + str(cmd[1]))
+                    //print("got cmd:" + str(cmd[0]) + str(cmd[1]))
                     time.sleep(0.1)
                 else:
                     pre = 'unknown '
                 self.lock.release()
 
-                log(self.address, pre + 'command: ' + cmd.strip())
+                log(self.address, pre + 'command: ' + str(cmd[0]) + str(cmd[1]))
         except socket.error as e:
             print("error", e)
             pass
