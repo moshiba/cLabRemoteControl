@@ -224,8 +224,12 @@ class ControlClient(threading.Thread):
                 self.lock.acquire()
                 if 'NCTUEEclass20htlu' in cmd:
                     cmd = cmd.split(',')[1:]
-                    car.rightWheel(float(cmd[0]))
-                    car.leftWheel(float(cmd[1]))
+                    try:
+                        car.rightWheel(float(cmd[0]))
+                        car.leftWheel( float(cmd[1]))
+                    except ValueError:
+                        car.rightWheel(0)
+                        car.leftWheel(0)
                     print("got cmd:" + str(cmd[0]) + str(cmd[1]))
                     time.sleep(0.3)
                 else:

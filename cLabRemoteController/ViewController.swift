@@ -35,21 +35,53 @@ class ViewController: NSViewController {
 
 
     // Cmd is made of tuple (RightWheelDutyCycle, LeftWheelDutyCycle)
+    var commandRepeater = Timer()
 
     /* Backup Controls */
+    let cmdRepeatFreq = 0.35
+    @objc func FdWrapper() {
+        self.socket.sendCommand(cmd: "80, 80")
+    }
+    @objc func BkWrapper() {
+        self.socket.sendCommand(cmd: "-80, -80")
+    }
+    @objc func RtWrapper() {
+        self.socket.sendCommand(cmd: "-100, 100")
+    }
+    @objc func LtWrapper() {
+        self.socket.sendCommand(cmd: "100, -100")
+    }
     @IBAction func FdButtonPressed(_ sender: Any) {
-        socket.sendCommand(cmd: "80, 80")
+        if (self.commandRepeater.isValid) {
+            self.commandRepeater.invalidate()
+        }
+        self.commandRepeater = Timer.scheduledTimer(timeInterval: cmdRepeatFreq, target: self, selector: #selector(FdWrapper), userInfo: "commandRepeater", repeats: true)
+        //self.socket.sendCommand(cmd: "80, 80")
     }
     @IBAction func BkButtonPressed(_ sender: Any) {
-        socket.sendCommand(cmd: "-80, -80")
+        if (self.commandRepeater.isValid) {
+            self.commandRepeater.invalidate()
+        }
+        self.commandRepeater = Timer.scheduledTimer(timeInterval: cmdRepeatFreq, target: self, selector: #selector(BkWrapper), userInfo: "commandRepeater", repeats: true)
+        //self.socket.sendCommand(cmd: "-80, -80")
     }
     @IBAction func RtButtonPressed(_ sender: Any) {
-        socket.sendCommand(cmd: "-100, 100")
+        if (self.commandRepeater.isValid) {
+            self.commandRepeater.invalidate()
+        }
+        self.commandRepeater = Timer.scheduledTimer(timeInterval: cmdRepeatFreq, target: self, selector: #selector(RtWrapper), userInfo: "commandRepeater", repeats: true)
+        //self.socket.sendCommand(cmd: "-80, 80")
     }
     @IBAction func LtButtonPressed(_ sender: Any) {
-        socket.sendCommand(cmd: "100, -100")
+        if (self.commandRepeater.isValid) {
+            self.commandRepeater.invalidate()
+        }
+        self.commandRepeater = Timer.scheduledTimer(timeInterval: cmdRepeatFreq, target: self, selector: #selector(LtWrapper), userInfo: "commandRepeater", repeats: true)
+        //self.socket.sendCommand(cmd: "80, -80")
     }
     @IBAction func StopButtonPressed(_ sender: NSButton) {
+        self.socket.sendCommand(cmd: "0, 0")
+        self.commandRepeater.invalidate()
     }
     
 
