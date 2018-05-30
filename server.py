@@ -222,7 +222,7 @@ class ControlClient(threading.Thread):
                     cmd += char
 
                 self.lock.acquire()
-                if 'NCTUEEclass20htlu' in cmd[0]:
+                if 'NCTUEEclass20htlu' in cmd:
                     cmd = cmd.split(',')[1:]
                     car.rightWheel(float(cmd[0]))
                     car.leftWheel(float(cmd[1]))
