@@ -62,12 +62,12 @@ class Server:
             log(
                 '[INFO]', 'Server is listening on {} and {}'.format(
                     self.port_stream, self.port_control))
-        except socket.error, (value, message):
+        except socket.error:
             if self.socket_stream:
                 self.socket_stream.close()
             if self.socket_control:
                 self.socket_control.close()
-            log('[ERROR]', 'Could not open socket: ' + message)
+            log('[ERROR]', 'Could not open socket')
             sys.exit(1)
 
     def run(self):
@@ -81,12 +81,14 @@ class Server:
 
                 for ss in input_ready:
                     if ss == self.socket_stream:
-                        cc = StreamClient(self.socket_stream.accept())
+                        sStream = self.socket_stream.accept()
+                        cc = StreamClient(sStream[0], sStream[1])
                         cc.start()
                         self.threads.append(cc)
 
                     elif ss == self.socket_control:
-                        cc = ControlClient(self.socket_control.accept())
+                        sCtrl = self.socket_control.accept()
+                        cc = ControlClient(sCtrl[0], sCtrl[1])
                         cc.start()
                         self.threads.append(cc)
 
@@ -101,7 +103,7 @@ class Server:
                         elif cmd == '':
                             pass
                         else:
-                            print 'Command not found: ' + cmd
+                            print('Command not found: ' + cmd)
 
         except KeyboardInterrupt:
             pass
@@ -119,8 +121,8 @@ class Server:
                 if t is not None and t.isAlive()
             ]
 
-        print 'Thank you'
-        print 'If it hangs here, please press Ctrl+\\ to quit'
+        print('Thank you')
+        print('If it hangs here, please press Ctrl+\\ to quit')
 
 
 class ShowFrame(threading.Thread):
@@ -141,7 +143,7 @@ class ShowFrame(threading.Thread):
 
 
 class StreamClient(threading.Thread):
-    def __init__(self, (client, address)):
+    def __init__(self, client, address):
         threading.Thread.__init__(self)
         self.client = client
         self.address = address
@@ -164,7 +166,7 @@ class StreamClient(threading.Thread):
 
 
 class ControlClient(threading.Thread):
-    def __init__(self, (client, address)):
+    def __init__(self, client, address):
         threading.Thread.__init__(self)
         self.client = client
         self.address = address
@@ -195,13 +197,13 @@ class ControlClient(threading.Thread):
                 if 'NCTUEEclass20htlu' in cmd:
                     cmd = cmd.split(',')[1:]
 
-                    print("got cmd:" + str(cmd[0]) + str(cmd[1]))
+                    # print("got cmd:" + str(cmd[0]) + str(cmd[1]))
                     time.sleep(0.1)
                 else:
                     pre = 'unknown '
                 self.lock.release()
 
-                log(self.address, pre + 'command: ' + cmd.strip())
+                log(self.address, pre + 'command: ' + str(cmd[0]) + str(cmd[1]))
         except socket.error as e:
             print("error", e)
             pass
@@ -210,8 +212,8 @@ class ControlClient(threading.Thread):
 
 
 def log(ip, msg):
-    print datetime.today().strftime('%b %d %H:%M:%S'),
-    print "{} {}.".format(ip, msg)
+    print(datetime.today().strftime('%b %d %H:%M:%S'))
+    print("{} {}.".format(ip, msg))
 
 
 if __name__ == '__main__':
