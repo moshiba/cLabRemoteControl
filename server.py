@@ -227,7 +227,7 @@ class ControlClient(threading.Thread):
                     cmd = cmd.split(',')[1:]
                     car.rightWheel(float(cmd[0]))
                     car.leftWheel(float(cmd[1]))
-                    print("got cmd:" + cmd[0] + cmd[1])
+                    print("got cmd:" + str(cmd[0]) + str(cmd[1]))
                     time.sleep(0.1)
                 else:
                     # pre = 'unknown '
