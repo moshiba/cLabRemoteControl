@@ -16,12 +16,10 @@ License:
 
 """
 
-from datetime import datetime
 import RPi.GPIO as GPIO
 import threading
 import select
 import socket
-import cv2
 import time
 import sys
 
@@ -30,7 +28,7 @@ class myCar:
 
     pwm_frequency = 200
 
-    def __init__(self, (right1, right2), (left1, left2)):
+    def __init__(self, right1, right2, left1, left2):
         GPIO.setmode(GPIO.BOARD)
         # pinMode
         GPIO.setup(right1, GPIO.OUT)
@@ -69,13 +67,7 @@ class myCar:
 
 
 # Use BOARD numbering system
-car = myCar((12, 11), (32, 31))
-
-camera = cv2.VideoCapture(0)
-camera.set(3, 320)
-camera.set(4, 240)
-
-camera_lock = threading.Lock()
+car = myCar(12, 11, 32, 31)
 
 
 class Server:
@@ -106,15 +98,13 @@ class Server:
                                            socket.SO_REUSEADDR, 1)
             self.socket_control.bind((self.host, self.port_control))
             self.socket_control.listen(5)
-            log(
-                '[INFO]', 'Server is listening on {} and {}'.format(
-                    self.port_stream, self.port_control))
-        except socket.error, (value, message):
-            if self.socket_stream:
-                self.socket_stream.close()
+            print("[INFO] Server is listening on " + str(self.port_stream) +
+                  " and " + str(self.port_control))
+        except socket.error:
             if self.socket_control:
                 self.socket_control.close()
-            log('[ERROR]', 'Could not open socket: ' + message)
+                self.socket_stream.close()
+            print("[ERROR] Could not open socket")
             sys.exit(1)
 
     def run(self):
@@ -128,20 +118,21 @@ class Server:
 
                 for ss in input_ready:
                     if ss == self.socket_stream:
-                        # FIXME: cc = StreamClient(self.socket_stream.accept())
-                        # FIXME: cc.start()
-                        # FIXME: self.threads.append(cc)
-                        pass  # FIXME:
+                        streamAcpt = self.socket_stream.accept()
+                        cc = StreamClient(streamAcpt[0], streamAcpt[1])
+                        cc.start()
+                        self.threads.append(cc)
 
                     elif ss == self.socket_control:
-                        cc = ControlClient(self.socket_control.accept())
+                        ctrlAcpt = self.socket_control.accept()
+                        cc = ControlClient(ctrlAcpt[0], ctrlAcpt[1])
                         cc.start()
                         self.threads.append(cc)
 
                     elif ss == sys.stdin:
                         cmd = sys.stdin.readline().strip()
                         if cmd == 'show':
-                            ss = ShowFrame()
+                            # ss = ShowFrame()
                             ss.start()
                             self.threads.append(s)
                         elif cmd == 'quit':
@@ -149,7 +140,7 @@ class Server:
                         elif cmd == '':
                             pass
                         else:
-                            print 'Command not found: ' + cmd
+                            print('Command not found: ' + cmd)
 
         except KeyboardInterrupt:
             pass
@@ -167,10 +158,11 @@ class Server:
                 if t is not None and t.isAlive()
             ]
 
-        print 'Thank you'
-        print 'If it hangs here, please press Ctrl+\\ to quit'
+        print('Thank you')
+        print('If it hangs here, please press Ctrl+\\ to quit')
 
 
+"""
 class ShowFrame(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
@@ -179,46 +171,36 @@ class ShowFrame(threading.Thread):
     def run(self):
         while self.running:
             camera_lock.acquire()
-            grabbed, frame = camera.read()
+            # grabbed, frame = camera.read()
             camera_lock.release()
-            cv2.imshow("Monitor", frame)
+            # cv2.imshow("Monitor", frame)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
             time.sleep(0.1)
         cv2.destroyWindow("Monitor")
+"""
 
 
 class StreamClient(threading.Thread):
-    def __init__(self, (client, address)):
+    def __init__(self, client, address):
         threading.Thread.__init__(self)
         self.client = client
         self.address = address
         self.running = 1
-        log(self.address, "connect")
+        print("connected to " + str(self.address))
 
     def run(self):
-        try:
-            while self.running:
-                camera_lock.acquire()
-                grabbed, frame = camera.read()
-                camera_lock.release()
-                jpeg = cv2.imencode('.jpg', frame)[1].tostring()
-                self.client.send(jpeg)
-        except socket.error as e:
-            print("error", e)
-            pass
-        self.client.close()
-        log(self.address, "close")
+        print("tried to run module StreamClient")
 
 
 class ControlClient(threading.Thread):
-    def __init__(self, (client, address)):
+    def __init__(self, client, address):
         threading.Thread.__init__(self)
         self.client = client
         self.address = address
         self.running = 1
         self.lock = threading.Lock()
-        log(self.address, "connect")
+        print("connected to " + str(self.address))
 
     def run(self):
         try:
@@ -239,34 +221,28 @@ class ControlClient(threading.Thread):
                         break
                     cmd += char
 
-                pre = ''
+                # pre = ''
                 self.lock.acquire()
                 if 'NCTUEEclass20htlu' in cmd:
                     cmd = cmd.split(',')[1:]
-                    car.rightWheel(cmd[0])
-                    car.leftWheel(cmd[1])
-                    # print("got cmd:" + str(cmd[0]) + str(cmd[1]))
+                    car.rightWheel(float(cmd[0]))
+                    car.leftWheel(float(cmd[1]))
+                    print("got cmd:" + cmd[0] + cmd[1])
                     time.sleep(0.1)
                 else:
-                    pre = 'unknown '
+                    # pre = 'unknown '
+                    pass
                 self.lock.release()
 
-                log(self.address, pre + 'command: ' + str(cmd[0]) + str(cmd[1]))
         except socket.error as e:
             print("error", e)
             pass
         self.client.close()
-        log(self.address, "close")
-
-
-def log(ip, msg):
-    print datetime.today().strftime('%b %d %H:%M:%S'),
-    print "{} {}.".format(ip, msg)
+        print("connection to " + self.address + "closed")
 
 
 if __name__ == '__main__':
     s = Server()
     s.run()
 
-camera.release()
 GPIO.cleanup()
