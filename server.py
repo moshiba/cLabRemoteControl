@@ -219,11 +219,13 @@ class ControlClient(threading.Thread):
                 for char in data:
                     if char == '\n' or char == '\r':
                         break
-                    cmd += str(char)
+                    print("recv: " + str(char))
+                    print(type(char))
+                    cmd += char
 
                 # pre = ''
                 self.lock.acquire()
-                if 'NCTUEEclass20htlu' in cmd:
+                if cmd[0] == 'NCTUEEclass20htlu':
                     cmd = cmd.split(',')[1:]
                     car.rightWheel(float(cmd[0]))
                     car.leftWheel(float(cmd[1]))
