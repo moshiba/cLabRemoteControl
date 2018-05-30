@@ -49,7 +49,9 @@ class ViewController: NSViewController {
     @IBAction func LtButtonPressed(_ sender: Any) {
         socket.sendCommand(cmd: "100, -100")
     }
-
+    @IBAction func StopButtonPressed(_ sender: NSButton) {
+    }
+    
 
     let socket = SocketClient()
 
