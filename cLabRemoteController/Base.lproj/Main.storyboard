@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -10,11 +13,11 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="cLabRemoteControl" id="1Xt-HY-uBw">
+                            <menuItem title="cLabRemoteController" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="cLabRemoteControl" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="cLabRemoteController" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About cLabRemoteControl" id="5kV-Vb-QxS">
+                                        <menuItem title="About cLabRemoteController" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
@@ -28,7 +31,7 @@
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide cLabRemoteControl" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide cLabRemoteController" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -46,7 +49,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit cLabRemoteControl" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit cLabRemoteController" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
@@ -659,7 +662,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="cLabRemoteControl Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                        <menuItem title="cLabRemoteController Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
@@ -673,7 +676,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="cLabRemoteController" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -688,7 +691,7 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-			<connections>
+                        <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
                     </window>
@@ -703,15 +706,128 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="cLabRemoteController" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f1A-01-yc3">
+                                <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="f1A-01-yc3" secondAttribute="height" multiplier="16:9" id="MKt-H6-x8B"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="BPF-uO-gGd"/>
+                            </imageView>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IO2-BR-sO2">
+                                <rect key="frame" x="18" y="20" width="100" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" alignment="center" placeholderString="Server IP" id="UjI-6K-dlQ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="ipFieldFilled:" target="XfG-lQ-9wD" id="t6k-VT-6LD"/>
+                                </connections>
+                            </textField>
+                            <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1YI-Pi-HCM">
+                                <rect key="frame" x="841" y="36" width="71" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="eXf-Zn-q43" userLabel="inputMethodControl">
+                                    <font key="font" metaFont="system"/>
+                                    <segments>
+                                        <segment label="⌨️" width="32"/>
+                                        <segment label="🎮" width="32" selected="YES" tag="1"/>
+                                    </segments>
+                                </segmentedCell>
+                                <connections>
+                                    <action selector="inputMethodControlAction:" target="XfG-lQ-9wD" id="D1L-qd-eI5"/>
+                                </connections>
+                            </segmentedControl>
+                            <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cJk-aZ-IAQ" userLabel="Power Level Indicator">
+                                <rect key="frame" x="583" y="38" width="160" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <levelIndicatorCell key="cell" alignment="left" maxValue="10" warningValue="4" criticalValue="2" levelIndicatorStyle="continuousCapacity" id="Zv2-rP-Rni"/>
+                            </levelIndicator>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A4I-Gz-Cae">
+                                <rect key="frame" x="453" y="111" width="56" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Fd" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QBb-uS-icI">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="FdButtonPressed:" target="XfG-lQ-9wD" id="AVf-QY-eP5"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DWZ-Pq-B8n">
+                                <rect key="frame" x="453" y="78" width="56" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Bk" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="W5p-du-fn5">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="BkButtonPressed:" target="XfG-lQ-9wD" id="Mje-8F-RNZ"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hcR-F2-H9V">
+                                <rect key="frame" x="509" y="78" width="54" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Rt" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ScD-cx-cio">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="RtButtonPressed:" target="XfG-lQ-9wD" id="1Hr-vW-sza"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BD4-41-HcM">
+                                <rect key="frame" x="401" y="78" width="52" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Lt" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wXY-fg-QuR">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="LtButtonPressed:" target="XfG-lQ-9wD" id="2nY-rI-zR8"/>
+                                </connections>
+                            </button>
+                            <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WCM-Pf-4R9" userLabel="direction indicator">
+                                <rect key="frame" x="347" y="30" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <sliderCell key="cell" alignment="left" maxValue="360" numberOfTickMarks="6" sliderType="circular" id="ivs-zx-9kG"/>
+                            </slider>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kb6-J9-JpO" userLabel="Stop Button">
+                                <rect key="frame" x="401" y="28" width="162" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="STOP" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ubl-rA-3i7">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" size="22" name="HelveticaNeue-Bold"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="StopButtonPressed:" target="XfG-lQ-9wD" id="z1V-xL-Txx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="f1A-01-yc3" secondAttribute="trailing" id="8h1-lZ-Ti6"/>
+                            <constraint firstItem="f1A-01-yc3" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="AMQ-Bb-tbO"/>
+                            <constraint firstAttribute="bottom" secondItem="f1A-01-yc3" secondAttribute="bottom" id="R1N-JR-ZE3"/>
+                            <constraint firstItem="f1A-01-yc3" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="eBL-Lt-wM9"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="directionIndicator" destination="WCM-Pf-4R9" id="a8h-hQ-G6y"/>
+                        <outlet property="imageCell" destination="f1A-01-yc3" id="qvL-fL-lsr"/>
+                        <outlet property="inputMethodControl" destination="1YI-Pi-HCM" id="Txh-B3-1jR"/>
+                        <outlet property="ipField" destination="IO2-BR-sO2" id="LEm-Vz-UUb"/>
+                        <outlet property="powerLevelIndicator" destination="cJk-aZ-IAQ" id="Qod-aj-hzW"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="891"/>
         </scene>
     </scenes>
 </document>

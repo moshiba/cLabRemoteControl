@@ -17,11 +17,19 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
+	<key>NSExceptionDomains</key>
+	<dict>
+		<key>devimages-cdn.apple.com</key>
+		<dict>
+			<key>NSExceptionRequiresForwardSecrecy</key>
+			<false/>
+		</dict>
+	</dict>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2018 Demilab. All rights reserved.</string>
 	<key>NSMainStoryboardFile</key>

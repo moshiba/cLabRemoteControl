@@ -1,4 +1,25 @@
 language: swift
+
+
+apt addons:
+before_install:
+install:
+    - yarn install
+
+before_script:
+script: yarn test
+
+after_success:
+after_failure:
+
+before_deploy:
+deploy:
+after_deploy:
+
+after_script:
+
+
 os: osx
-osx_image": xcode9.3
-script: "echo yo"
+osx_image: xcode9.3
+
+

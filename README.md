@@ -1,7 +1,25 @@
-# cLab Remote Controller
-
-[![Build Status](https://travis-ci.com/HsuanTingLu/cLabRemoteControl.svg?token=tDHixgpdZAhsXN1fMdDk&branch=master)](https://travis-ci.com/HsuanTingLu/cLabRemoteControl)
+# cLabRemoteController
 
 ## About
 
+*NCTU '18 cLab  mini project III*
+**quasi-self-driving** car  with **video stream** for remote control
+
+mac os controlling client
+
+features:
+- remote control
+- video stream
+
+## Structure
+
+### UI
+
+- server IP setting
+- connect button
+- directions
+    - fd
+    - bk
+    - lt
+    - rt
 
