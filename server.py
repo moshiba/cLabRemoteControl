@@ -219,11 +219,8 @@ class ControlClient(threading.Thread):
                 for char in data:
                     if char == '\n' or char == '\r':
                         break
-                    print(char)
-                    print(type(char))
                     cmd += char
 
-                # pre = ''
                 self.lock.acquire()
                 if cmd[0] == 'NCTUEEclass20htlu':
                     cmd = cmd.split(',')[1:]
@@ -231,9 +228,6 @@ class ControlClient(threading.Thread):
                     car.leftWheel(float(cmd[1]))
                     print("got cmd:" + str(cmd[0]) + str(cmd[1]))
                     time.sleep(0.1)
-                else:
-                    # pre = 'unknown '
-                    pass
                 self.lock.release()
 
         except socket.error as e:
