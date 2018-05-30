@@ -219,7 +219,7 @@ class ControlClient(threading.Thread):
                 for char in data:
                     if char == '\n' or char == '\r':
                         break
-                    print("recv: " + str(char))
+                    print(char)
                     print(type(char))
                     cmd += char
 
